@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="2">
+        <tr>
+            <th>Departmentno</th>
+            <th>Dept Name</th>
+            <th>Description</th>
+            <th>Created_BY</th>
+            <th>created_at</th>
+        </tr>
+        {%for i in data%}
+        <tr>
+            <td>{{i.did}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.description}}</td>
+            <td>{{i.created_by}}</td>
+            <td>{{i.created_at}}</td>
+            <td><a href="{%url 'deptupdate' pk=i.did %}">Update</a></td>
+            <td><a href="{%url 'deptdelete' pk=i.did %}">delete</a></td>
+            <td>{{i.created_at}}</td>
+        </tr>
+        {%endfor%}
+    </table>
+
+</body>
+
+</html>

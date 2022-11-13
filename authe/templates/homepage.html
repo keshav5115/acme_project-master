@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>logout</title>
+    </head>
+
+    <body>
+        {% if user.is_authenticated %}
+        <h1>Welcome, {{user.username|title}}</h1>
+        <a class="nav-link" href="/logout">Logout</a>
+        {% if user.is_staff %}
+        <a href="{%url 'usercreate' %}">User create</a>
+        <a href="{%url 'dept' %}">Department create</a>
+        <a href="{%url 'deptlist' %}">Department list</a>
+        {%else%}
+        <a href="{%url 'ticketview' %}">ticketlist</a>
+        {%endif%}
+        {% else %}
+
+        <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+        </li>
+        {% endif %}
+    </body>
+
+    </html>
+</body>
+
+</html>
